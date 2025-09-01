@@ -1,10 +1,10 @@
 // pages/index.tsx
-import Head from "next/head";
-import Image from "next/image";
-import { useState } from "react";
-import { PROPERTYLISTINGSAMPLE, HERO_BACKGROUND_IMAGE } from "@/constants";
-import { PropertyProps } from "@/interfaces";
-import Pill from "@/components/Pill";
+import Head from 'next/head';
+import Image from 'next/image';
+import { useState } from 'react';
+import { PROPERTYLISTINGSAMPLE, HERO_BACKGROUND_IMAGE } from '@/constants';
+import { PropertyProps } from '@/interfaces';
+import Pill from '@/components/Pill';
 
 type PropertyCategory = string;
 
@@ -44,7 +44,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
           </span>
         </div>
         <div className="mt-2 flex flex-wrap gap-2">
-          {property.category.map((cat) => (
+          {property.category.map(cat => (
             <span
               key={cat}
               className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
@@ -59,22 +59,20 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
 };
 
 const Home: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<PropertyCategory | "All">(
-    "All"
+  const [activeFilter, setActiveFilter] = useState<PropertyCategory | 'All'>(
+    'All'
   );
 
   const allCategories = Array.from(
-    new Set(
-      PROPERTYLISTINGSAMPLE.flatMap((property) => property.category)
-    )
+    new Set(PROPERTYLISTINGSAMPLE.flatMap(property => property.category))
   );
 
-  const filters = ["All", ...allCategories];
+  const filters = ['All', ...allCategories];
 
   const filteredProperties =
-    activeFilter === "All"
+    activeFilter === 'All'
       ? PROPERTYLISTINGSAMPLE
-      : PROPERTYLISTINGSAMPLE.filter((property) =>
+      : PROPERTYLISTINGSAMPLE.filter(property =>
           property.category.includes(activeFilter)
         );
 
@@ -107,7 +105,7 @@ const Home: React.FC = () => {
             Filter Properties
           </h2>
           <div className="flex flex-wrap gap-3">
-            {filters.map((filter) => (
+            {filters.map(filter => (
               <Pill
                 key={filter}
                 label={filter}
@@ -124,7 +122,7 @@ const Home: React.FC = () => {
           </h2>
           {filteredProperties.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProperties.map((property) => (
+              {filteredProperties.map(property => (
                 <PropertyCard key={property.name} property={property} />
               ))}
             </div>
