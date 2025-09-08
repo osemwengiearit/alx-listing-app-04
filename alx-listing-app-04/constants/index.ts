@@ -1,5 +1,28 @@
-import { PropertyProps } from "@/interfaces"; // Make sure this path is correct
+//define the types
+export interface Address {
+  state: string;
+  city: string;
+  country: string;
+}
 
+export interface Offers {
+  bed: string;
+  shower: string;
+  occupants: string;
+}
+
+export interface PropertyProps {
+  name: string;
+  address: Address;
+  rating: number;
+  category: string[];
+  price: number;
+  offers: Offers;
+  image: string;
+  discount: string;
+}
+
+//export the constants
 export const PROPERTYLISTINGSAMPLE: PropertyProps[] = [
   {
     name: "Villa Ocean Breeze",
@@ -363,4 +386,15 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps[] = [
   },
 ];
 
-export const HERO_BACKGROUND_IMAGE = "https://source.unsplash.com/random/1600x900/?luxury-villa";
+export const PROPERTYLISTINGCATEGORIES = [
+  "Luxury Villa",
+  "Beachfront",
+  "Historical",
+  "City Center",
+  "Safari",
+  "Countryside",
+  "Riverfront",
+  "Mountain View",
+  "Island Paradise",
+  "Clifftop Retreat",
+];

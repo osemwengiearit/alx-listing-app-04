@@ -2,27 +2,33 @@ import React from "react";
 
 interface PillProps {
   label: string;
-  isActive?: boolean;
-  onClick?: (label: string) => void;
+  selected?: boolean;
+  onClick?: () => void;
 }
 
-const Pill: React.FC<PillProps> = ({ label, isActive = false, onClick }) => {
-  const baseClasses =
-    "px-4 py-2 rounded-full cursor-pointer transition-colors duration-200 ease-in-out text-sm font-medium";
-  const activeClasses = "bg-blue-600 text-white";
-  const inactiveClasses =
-    "bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800";
-
+const Pill: React.FC<PillProps> = ({ label, selected, onClick }) => {
   return (
     <button
-      onClick={() => onClick && onClick(label)}
-      className={`${baseClasses} ${
-        isActive ? activeClasses : inactiveClasses
+      onClick={onClick}
+      className={`px-4 py-1 rounded-full border text-sm transition-all ${
+        selected
+          ? "bg-blue-600 text-white border-blue-600"
+          : "bg-gray-100 text-gray-800 hover:bg-blue-100"
       }`}
     >
       {label}
     </button>
   );
 };
+
+// constants/filters
+export const FILTER_LABELS = [
+  "Top Villa",
+  "Self Checkin",
+  "Pet Friendly",
+  "Free Parking",
+  "Private Pool",
+  "Mountain View",
+];
 
 export default Pill;

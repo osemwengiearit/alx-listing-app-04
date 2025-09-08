@@ -1,42 +1,41 @@
 import React from "react";
-import Link from "next/link"; 
 
-const Header: React.FC = () => {
+// define header component
+
+const Header= () => {
   return (
-    <header className="bg-white shadow-md p-4 flex flex-col md:flex-row items-center justify-between fixed w-full z-10 top-0">
+    <header className="bg-white shadow-md px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
       {/* Logo */}
-      <div className="flex items-center mb-4 md:mb-0">
-        <Link href="/" className="text-2xl font-bold text-gray-800">
-          ALX Listing App
-        </Link>
+      <div className="text-2xl font-bold text-blue-600">
+        <span>StayFinder</span>
       </div>
 
-      {}
-      <div className="flex-grow mx-4 max-w-lg w-full">
+      {/* Search Bar */}
+      <div className="w-full md:w-1/2">
         <input
           type="text"
-          placeholder="Search for properties..."
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Search for a property..."
+          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
-      {}
-      <nav className="flex items-center space-x-4">
-        <Link href="/rooms" className="text-gray-600 hover:text-blue-500">
-          Rooms
-        </Link>
-        <Link href="/mansions" className="text-gray-600 hover:text-blue-500">
-          Mansion
-        </Link>
-        <Link href="/countryside" className="text-gray-600 hover:text-blue-500">
-          Countryside
-        </Link>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-          Sign Up
-        </button>
-        <button className="px-4 py-2 border border-blue-500 text-blue-500 rounded-md hover:bg-blue-50 hover:text-blue-600">
+      {/* Auth Buttons */}
+      <div className="flex gap-4">
+        <button className="text-blue-600 font-semibold hover:underline">
           Sign In
         </button>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Sign Up
+        </button>
+      </div>
+
+      {/* Accommodation Types */}
+      <nav className="w-full md:w-auto mt-4 md:mt-0 flex flex-wrap justify-center gap-3 text-sm text-gray-600">
+        {accommodationTypes.map((type) => (
+          <span key={type} className="hover:text-blue-600 cursor-pointer">
+            {type}
+          </span>
+        ))}
       </nav>
     </header>
   );
