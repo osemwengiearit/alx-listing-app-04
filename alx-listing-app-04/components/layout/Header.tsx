@@ -1,44 +1,27 @@
-import React from "react";
+import Link from 'next/link'; 
 
-// define header component
-
-const Header= () => {
+const Header: React.FC = () => {
   return (
-    <header className="bg-white shadow-md px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      {/* Logo */}
-      <div className="text-2xl font-bold text-blue-600">
-        <span>StayFinder</span>
-      </div>
+    <header className="bg-blue-600 text-white shadow-md py-4">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <h3 className="font-bold text-2xl">
+     <Link href="/">Daily Contents</Link>
+  </h3>
+        <nav>
+          <ul className="flex space-x-6">
+            <li className="hover:underline">
+              <Link href="/posts">Posts</Link>
+            </li>
+            <li className="hover:underline">
 
-      {/* Search Bar */}
-      <div className="w-full md:w-1/2">
-        <input
-          type="text"
-          placeholder="Search for a property..."
-          className="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
 
-      {/* Auth Buttons */}
-      <div className="flex gap-4">
-        <button className="text-blue-600 font-semibold hover:underline">
-          Sign In
-        </button>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          Sign Up
-        </button>
+  <Link href="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-
-      {/* Accommodation Types */}
-      <nav className="w-full md:w-auto mt-4 md:mt-0 flex flex-wrap justify-center gap-3 text-sm text-gray-600">
-        {accommodationTypes.map((type) => (
-          <span key={type} className="hover:text-blue-600 cursor-pointer">
-            {type}
-          </span>
-        ))}
-      </nav>
     </header>
   );
-};
+}
 
 export default Header;

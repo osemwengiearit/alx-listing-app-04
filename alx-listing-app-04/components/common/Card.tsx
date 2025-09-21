@@ -1,12 +1,9 @@
-import React from 'react';
-import { CardProps } from '../../interfaces';
+import React from 'React'
 
-const Card: React.FC<CardProps> = ({ title, image, description }) => (
-  <div>
-    <h2>{title}</h2>
-    <img src={image} alt={title} />
-    <p>{description}</p>
-  </div>
-);
+const Card = () => {
+  return (
+    <div>Card</div>
+  )
+}
 
-export default Card;
+export default Card

@@ -1,8 +1,9 @@
-import React from 'react';
-import { ButtonProps } from '../../interfaces';
+import React from 'react'
 
-const Button: React.FC<ButtonProps> = ({ text, onClick }) => (
-  <button onClick={onClick}>{text}</button>
-);
+const Button = () => {
+  return (
+    <div>Button</div>
+  )
+}
 
-export default Button;
+export default Button

@@ -1,14 +1,9 @@
-// components/layout/Footer.tsx
-import React from "react";
-
 const Footer: React.FC = () => {
-  return (
-    <footer className="bg-gray-100 text-center py-4 mt-10">
-      <p className="text-sm text-gray-600">
-        © {new Date().getFullYear()} StayFinder. All rights reserved.
-      </p>
-    </footer>
-  );
-};
-
-export default Footer;
+    return (
+      <footer className="bg-gray-800 text-white p-4 mt-4">
+        <p className="text-center">© 2024 My Website</p>
+      </footer>
+    );
+  }
+  
+  export default Footer;

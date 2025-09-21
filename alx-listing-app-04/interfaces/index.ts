@@ -1,25 +1,63 @@
-// Address structure
+export interface PostProps {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+interface Geo {
+  lat: string;
+  lng: string;
+}
 interface Address {
-  state: string;
+  street: string;
+  suite: string;
   city: string;
-  country: string;
+  zipcode: string;
+  geo: Geo;
 }
 
-// Offers structure
-interface Offers {
-  bed: string; // e.g. "3"
-  shower: string; // e.g. "2"
-  occupants: string; // e.g. "4-6"
+interface Company {
+  name: string;
+  catchPhrase: string;
+  bs: string;
+}
+export interface UserProps {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
+  company: Company;
 }
 
-// Main property interface
-export interface PropertyProps {
-  name: string; // Property name/title
-  address: Address; // Location details
-  rating: number; // Average user rating
-  category: string[]; // Array of feature tags
-  price: number; // Price per night or per stay
-  offers: Offers; // Details about beds, showers, and capacity
-  image: string; // URL to the property's image
-  discount: string; // Discount percentage as string (e.g. "20" or "")
+
+export interface PostData {
+  userId: number;
+  id?: number;
+  title: string;
+  body: string;
+}
+
+export interface PostModalProps {
+  onClose: () => void;
+  onSubmit: (post: PostData) => void;
+}
+
+export interface UserData {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  address: Address;
+  phone: string;
+  website: string;
+  company: Company
+}
+
+export interface UserModalProps {
+  onClose: () => void;
+  onSubmit: (user: UserData) => void;
 }
